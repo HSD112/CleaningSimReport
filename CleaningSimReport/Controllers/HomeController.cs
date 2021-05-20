@@ -50,7 +50,8 @@ namespace CleaningSimReport.Controllers
                     "[user_id]," +
                     "[time_seconds]," +
                     "[mistakes_count]," +
-                    "[level_name] " +
+                    "[level_name]," +
+                    "[creation_datetime] " +
                     "FROM[dbo].[Report]";
                 dr = com.ExecuteReader();
 
@@ -58,11 +59,12 @@ namespace CleaningSimReport.Controllers
                 {
                     reports.Add(new Report()
                     {
-                        report_id = dr["report_id"].ToString(),
-                        user_id = dr["user_id"].ToString(),
-                        time_seconds = dr["time_seconds"].ToString(),
-                        mistakes_count = dr["mistakes_count"].ToString(),
-                        level_name = dr["level_name"].ToString()
+                        Report_id = dr["report_id"].ToString(),
+                        User_id = dr["user_id"].ToString(),
+                        Time_seconds = dr["time_seconds"].ToString(),
+                        Mistakes_count = dr["mistakes_count"].ToString(),
+                        Level_name = dr["level_name"].ToString(),
+                        Creation_datetime = dr["creation_datetime"].ToString()
                     });
                 }
 

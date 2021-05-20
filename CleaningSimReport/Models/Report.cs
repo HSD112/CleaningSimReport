@@ -7,10 +7,11 @@ namespace CleaningSimReport.Models
 {
     public class Report
     {
-        public string report_id { get; set; }
-        public string user_id { get; set; }
-        public string time_seconds { get; set; }
-        public string mistakes_count { get; set; }
-        public string level_name { get; set; }
+        public string Report_id { get; set; }
+        public string User_id { get; set; }
+        public string Time_seconds { get; set; }
+        public string Mistakes_count { get; set; }
+        public string Level_name { get; set; }
+        public string Creation_datetime { get; set; }
     }
 }

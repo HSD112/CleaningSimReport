@@ -1,10 +1,11 @@
 ﻿@{
     ViewData["Title"] = "Home page";
-    string[] TableHeaders = new string[] {"report_id"
-          ,"user_id"
-          ,"time_seconds"
-          ,"mistakes_count"
-          ,"level_name" };
+    string[] TableHeaders = new string[] {"Report no."
+          ,"User id"
+          ,"Time in seconds"
+          ,"Mistakes made"
+          ,"Level name"
+          ,"Datetime"};
 }
 
 
@@ -26,7 +27,6 @@
                         </th>
                     }
                 }
-                <th></th>
             </tr>
         </thead> @*Code to fetch data from db and fetch it to view*@
 
@@ -37,11 +37,12 @@
                     foreach (var Data in Model)
                     {
                         <tr>
-                            <td>@Data.report_id</td>
-                            <td>@Data.user_id</td>
-                            <td>@Data.time_seconds</td>
-                            <td>@Data.mistakes_count</td>
-                            <td>@Data.level_name</td>
+                            <td>@Data.Report_id</td>
+                            <td>@Data.User_id</td>
+                            <td>@Data.Time_seconds</td>
+                            <td>@Data.Mistakes_count</td>
+                            <td>@Data.Level_name</td>
+                            <td>@Data.Creation_datetime</td>
                         </tr>
                     }
                 }

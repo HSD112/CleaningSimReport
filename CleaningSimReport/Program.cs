@@ -11,6 +11,7 @@ namespace CleaningSimReport
 {
     public class Program
     {
+        private string sqlCon;
         public static void Main(string[] args)
         {
             CreateHostBuilder(args).Build().Run();
