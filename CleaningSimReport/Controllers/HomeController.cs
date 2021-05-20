@@ -8,13 +8,15 @@ using System.Linq;
 using System.Threading.Tasks;
 
 using System.Data.SqlClient;
-using Microsoft.Extensions.Logging;
-using CleaningSimReport.Models;
+using Microsoft.Extensions.Configuration;
 
 namespace CleaningSimReport.Controllers
 {
     public class HomeController : Controller
     {
+
+        private IConfiguration _configuration;
+
         SqlCommand com = new SqlCommand();
         SqlDataReader dr;
         SqlConnection con = new SqlConnection();
@@ -23,10 +25,15 @@ namespace CleaningSimReport.Controllers
 
         private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger,IConfiguration configuration)  //ok this part from the docs I don't get but it works ?
         {
+            _configuration = configuration;
             _logger = logger;
-            con.ConnectionString = CleaningSimReport.Properties.Resources.ConnectionString;
+
+            // retrieve App Service connection string
+            string myConnString = _configuration.GetConnectionString("MYSQLCONNSTR_connectionString1");
+
+            con.ConnectionString = myConnString;
         }
 
         public IActionResult Index()
