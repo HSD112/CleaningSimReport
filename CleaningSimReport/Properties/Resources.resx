@@ -117,8 +117,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="ConnectionString" xml:space="preserve">
-    <value>Server=tcp:cleaning-sim-server.database.windows.net,1433;Initial Catalog=cleaning-sim;Persist Security Info=False;User ID=Stefan;Password=Password;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;</value>
-    <comment>SQL Server Connection</comment>
-  </data>
 </root>

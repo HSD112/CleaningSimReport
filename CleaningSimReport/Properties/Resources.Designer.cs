@@ -59,14 +59,5 @@ namespace CleaningSimReport.Properties {
                 resourceCulture = value;
             }
         }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Server=tcp:cleaning-sim-server.database.windows.net,1433;Initial Catalog=cleaning-sim;Persist Security Info=False;User ID=Stefan;Password=Password;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;.
-        /// </summary>
-        internal static string ConnectionString {
-            get {
-                return ResourceManager.GetString("ConnectionString", resourceCulture);
-            }
-        }
     }
 }

@@ -31,7 +31,7 @@ namespace CleaningSimReport.Controllers
             _logger = logger;
 
             // retrieve App Service connection string
-            string myConnString = Configuration.GetConnectionString("SqlCon");
+            string myConnString = Configuration.GetConnectionString("SqlCon"); //getting the sql connection string from azure web app configuration so it is not exposed
                 
 
             con.ConnectionString = myConnString;
