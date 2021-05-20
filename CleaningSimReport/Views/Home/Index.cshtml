@@ -1,7 +1,51 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Home page";
+    string[] TableHeaders = new string[] {"report_id"
+          ,"user_id"
+          ,"time_seconds"
+          ,"mistakes_count"
+          ,"level_name" };
 }
+
+
 
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
+    @*<p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>*@
+</div>
+
+<div class="table">
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                @{
+                    foreach (var head in TableHeaders)   //dynamically creates the table headers
+                    {
+                        <th>
+                            @head
+                        </th>
+                    }
+                }
+                <th></th>
+            </tr>
+        </thead> @*Code to fetch data from db and fetch it to view*@
+
+        <tbody>
+            @{
+                if (Model != null)
+                {
+                    foreach (var Data in Model)
+                    {
+                        <tr>
+                            <td>@Data.report_id</td>
+                            <td>@Data.user_id</td>
+                            <td>@Data.time_seconds</td>
+                            <td>@Data.mistakes_count</td>
+                            <td>@Data.level_name</td>
+                        </tr>
+                    }
+                }
+            }
+        </tbody>
+    </table>
 </div>
