@@ -14,8 +14,6 @@ namespace CleaningSimReport
 {
     public class Startup
     {
-
-        private string _sqlConString = "";
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -27,7 +25,6 @@ namespace CleaningSimReport
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-            _sqlConString = Configuration["ConnectionString:Sql"];
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -55,11 +52,6 @@ namespace CleaningSimReport
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
-            });
-
-            app.Run(async (context) =>
-            {
-                await context.Response.WriteAsync($"DB Connection: {_sqlConString}");
             });
         }
     }

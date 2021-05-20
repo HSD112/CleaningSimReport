@@ -15,7 +15,7 @@ namespace CleaningSimReport.Controllers
     public class HomeController : Controller
     {
 
-        private IConfiguration _configuration;
+        private IConfiguration Configuration;
 
         SqlCommand com = new SqlCommand();
         SqlDataReader dr;
@@ -27,11 +27,12 @@ namespace CleaningSimReport.Controllers
 
         public HomeController(ILogger<HomeController> logger,IConfiguration configuration)  //ok this part from the docs I don't get but it works ?
         {
-            _configuration = configuration;
+            Configuration = configuration;
             _logger = logger;
 
             // retrieve App Service connection string
-            string myConnString = _configuration.GetConnectionString("MYSQLCONNSTR_connectionString1");
+            string myConnString = Configuration.GetConnectionString("SqlCon");
+                
 
             con.ConnectionString = myConnString;
         }
