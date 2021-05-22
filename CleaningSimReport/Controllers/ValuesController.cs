@@ -46,7 +46,7 @@ namespace CleaningSimReport.Controllers
             ExecuteCommand();
             CloseConnection();
             string response = dr.Read().ToString();
-            return new string[] { response };
+            return new string[] { "Hello", "world" };
         }
 
         [HttpPost]
