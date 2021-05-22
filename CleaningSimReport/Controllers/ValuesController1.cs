@@ -12,17 +12,19 @@ namespace CleaningSimReport.Controllers
     [ApiController]
     public class ValuesController1 : ControllerBase
     {
+        int count = 0;
         // GET: api/<ValuesController1>
         [HttpGet]
         public IEnumerable<string> Get()
         {
-            return new string[] { "value1", "value2" };
+            return new string[] { "value1", "value2",count.ToString() };
         }
 
         // GET api/<ValuesController1>/5
         [HttpGet("{id}")]
         public string Get(int id)
         {
+            count += id;
             return "value"+id;
         }
 
@@ -30,6 +32,7 @@ namespace CleaningSimReport.Controllers
         [HttpPost]
         public void Post([FromBody] string value)
         {
+            count++;
         }
 
         // PUT api/<ValuesController1>/5
