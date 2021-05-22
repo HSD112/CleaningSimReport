@@ -38,14 +38,6 @@ namespace CleaningSimReport.Controllers
         [HttpGet]
         public IEnumerable<string> Get()
         {
-            MakeConnection();
-            string Command = "SELECT TOP (1) [user_id]" +
-                "FROM[dbo].[User_Table] WHERE[user_id] = " + 1;
-
-            MakeCommandText(Command);
-            ExecuteCommand();
-            CloseConnection();
-            //string response = dr.Read().ToString();
             return new string[] { "Hello", "world" };
         }
 
