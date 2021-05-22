@@ -34,8 +34,22 @@ namespace CleaningSimReport.Controllers
             con.ConnectionString = myConnString;
         }
 
+        [HttpGet]
+        public IEnumerable<string> Get()
+        {
+            MakeConnection();
+            string Command = "SELECT TOP (1) [user_id]" +
+                "FROM[dbo].[User_Table] WHERE[user_id] = " + 1;
+
+            MakeCommandText(Command);
+            ExecuteCommand();
+            CloseConnection();
+            string response = dr.Read().ToString();
+            return new string[] { response };
+        }
+
         [HttpPost]
-        public void SelectUser(int id)
+        public void Post([FromBody] int id)
         {
             MakeConnection();
             string Command = "SELECT TOP (1) [user_id]" +
