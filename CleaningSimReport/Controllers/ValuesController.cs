@@ -34,6 +34,7 @@ namespace CleaningSimReport.Controllers
             con.ConnectionString = myConnString;
         }
 
+        // GET: api/<ValuesController>
         [HttpGet]
         public IEnumerable<string> Get()
         {

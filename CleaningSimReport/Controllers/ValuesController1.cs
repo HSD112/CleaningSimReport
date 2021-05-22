@@ -1,6 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using CleaningSimReport.Models;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -12,11 +14,29 @@ namespace CleaningSimReport.Controllers
     [ApiController]
     public class ValuesController1 : ControllerBase
     {
+        SqlCommand com = new SqlCommand();
+        SqlDataReader dr;
+        SqlConnection con = new SqlConnection();
+
+        List<Report> reports = new List<Report>();
+
         // GET: api/<ValuesController1>
         [HttpGet]
         public IEnumerable<string> Get()
         {
-            return new string[] { "value1", "value2"};
+            
+
+            MakeConnection();
+            string Command = "SELECT TOP (1) [user_id]" +
+                "FROM[dbo].[User_Table] WHERE[user_id] = " + 1;
+
+            MakeCommandText(Command);
+            ExecuteCommand();
+            CloseConnection();
+            string response = dr.Read().ToString();
+            return new string[] { response };
+
+            //return new string[] { "value1", "value2"};
         }
 
         // GET api/<ValuesController1>/5
@@ -42,6 +62,59 @@ namespace CleaningSimReport.Controllers
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
+        }
+
+        private void MakeConnection()
+        {
+            try
+            {
+                con.Open();
+                com.Connection = con;
+            }
+            catch (Exception e)
+            {
+
+                throw e;
+            }
+        }
+
+        private void MakeCommandText(String command)
+        {
+            try
+            {
+                com.CommandText = command;
+            }
+            catch (Exception e)
+            {
+
+                throw e;
+            }
+        }
+
+        private void ExecuteCommand()
+        {
+            try
+            {
+                dr = com.ExecuteReader();
+            }
+            catch (Exception e)
+            {
+
+                throw e;
+            }
+        }
+
+        private void CloseConnection()
+        {
+            try
+            {
+                con.Close();
+            }
+            catch (Exception e)
+            {
+
+                throw e;
+            }
         }
     }
 }
