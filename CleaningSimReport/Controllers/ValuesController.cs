@@ -45,7 +45,7 @@ namespace CleaningSimReport.Controllers
             MakeCommandText(Command);
             ExecuteCommand();
             CloseConnection();
-            string response = dr.Read().ToString();
+            //string response = dr.Read().ToString();
             return new string[] { "Hello", "world" };
         }
 
