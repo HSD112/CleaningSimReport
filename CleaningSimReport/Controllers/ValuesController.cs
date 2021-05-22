@@ -54,7 +54,10 @@ namespace CleaningSimReport.Controllers
                 Command = "INSERT INTO [dbo].[User_Table]" +
                     "([user_id])" +
                     "VALUES" +
-                    "(<"+id.ToString()+", int,>)";
+                    "(<"+id+", int,>)";
+                MakeCommandText(Command);
+                ExecuteCommand();
+                CloseConnection();
             }
 
         }

@@ -2,6 +2,12 @@
   "dependencies": {
     "secrets1": {
       "type": "secrets.user"
+    },
+    "mssql1": {
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.Sql/servers/cleaning-sim-server/databases/cleaning-sim",
+      "type": "mssql.azure",
+      "connectionId": "CleaningSimReportContext",
+      "secretStore": "LocalSecretsFile"
     }
   }
 }
