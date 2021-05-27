@@ -57,7 +57,8 @@ namespace CleaningSimReport.Controllers
                     "[mistakes_count]," +
                     "[level_name]," +
                     "[creation_datetime] " +
-                    "FROM[dbo].[Report]";
+                    "FROM[dbo].[Report]" +
+                    "ORDER BY [report_id] DESC";
                 dr = com.ExecuteReader();
 
                 while (dr.Read())
