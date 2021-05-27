@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace CleaningSimReport.Models
+﻿namespace CleaningSimReport.Models
 {
     public class User
     {
